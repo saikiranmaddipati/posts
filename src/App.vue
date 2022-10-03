@@ -76,18 +76,32 @@
     </q-drawer>
 
     <q-page-container>
-      <post-details></post-details>
+      <div id="app">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <a class="navbar-brand" href="#">
+        <h1>post</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <router-link to="/login">Home</router-link> |
+          <router-link to="/about">About</router-link>
+        </div>
+      </div>
+    </nav>
+    <router-view/>
+  </div>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import PostDetails from './components/PostDetails.vue'
 export default {
   name: 'LayoutDefault',
 
   components: {
-    PostDetails
   },
 
   data () {
