@@ -3,7 +3,7 @@
         <h1 class="text-center">post details</h1>
         <div v-for="post in postDetails" :key="post.id">
             <q-card
-      class="my-card text-white"
+      class="my-card text-white shadow-10"
       style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)"
     >
     <q-card-section>
