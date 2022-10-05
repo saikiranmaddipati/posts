@@ -1,26 +1,34 @@
 <template>
-    <div id="login-page">
-      <h1>Login Page</h1>
-      <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" v-model="input.username" placeholder="Username"/>
-      </div>
-        <br/>
-      <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="input.password" placeholder="Password"/>
-      </div>
-        <br/>
-        <button v-on:click="login()" class="button">Login</button>
-        <p v-if="showError" id="error">Username or Password is incorrect</p>
-        <p v-if="showOutput">Please Enter username and password</p>
+<div>
+  <div class="text-center">
+    <h1 class="heading">Login Page</h1>
+    <div>
+      <input
+        type="text"
+        class="login"
+        v-model="input.username"
+        placeholder="Username"
+      />
+      <input
+        type="password"
+        class="login"
+        v-model="input.password"
+        placeholder="Password"
+      />
     </div>
+    <button v-on:click="login()" class="button">Login</button>
+    <div class="mt-5">
+      <p v-if="showError" id="error">Username or Password is incorrect</p>
+      <p v-if="showOutput">Please Enter username and password</p>
+    </div>
+  </div>
+</div>
 </template>
 
 <script>
 import router from '../router/index.js'
 import { mapGetters } from 'vuex'
-export default ({
+export default {
   name: 'LoginPage',
   data () {
     return {
@@ -67,16 +75,32 @@ export default ({
       }
     }
   }
-})
+}
 </script>
 
 <style scoped>
-.button{
+.heading {
+  font-family: "Roboto";
+  font-size: 50px;
+  font-weight: 500;
+  color: blue;
+}
+.button {
   height: 40px;
   width: 120px;
-  background-color: blue;
+  background-color: skyblue;
   font-family: "Roboto";
   font-size: 20px;
-  border-radius: 10px
+  border-radius: 10px;
+}
+.login {
+  width: 300px;
+  height: 40px;
+  padding-left: 20px;
+  display: block;
+  margin-bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid skyblue;
 }
 </style>

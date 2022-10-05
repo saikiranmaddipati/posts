@@ -1,6 +1,5 @@
 <template>
     <div id="info">
-    <h1>This is Info page</h1>
     <post-details></post-details>
     </div>
 </template>
