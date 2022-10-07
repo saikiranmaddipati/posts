@@ -1,8 +1,10 @@
 <template>
-<div>
-  <div class="text-center">
-    <h1 class="heading">Login Page</h1>
-    <div>
+<div class="pt-5 background-container">
+  <div>
+    <div class="d-flex flex-row justify-content-center">
+     <h1 class="heading">Login Page</h1>
+    </div>
+    <div class="d-flex flex-column justify-content-center">
       <input
         type="text"
         class="login"
@@ -16,7 +18,9 @@
         placeholder="Password"
       />
     </div>
-    <button v-on:click="login()" class="button">Login</button>
+    <div class="d-flex flex-row justify-content-center">
+      <button v-on:click="login()" class="button">Login</button>
+    </div>
     <div class="mt-5">
       <p v-if="showError" id="error">Username or Password is incorrect</p>
       <p v-if="showOutput">Please Enter username and password</p>
@@ -79,6 +83,10 @@ export default {
 </script>
 
 <style scoped>
+.background-container{
+  height: 100vh;
+  background-image: radial-gradient(#2196f3, #f44336);
+}
 .heading {
   font-family: "Roboto";
   font-size: 50px;
