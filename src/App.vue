@@ -7,18 +7,6 @@
 <script>
 
 export default {
-  name: 'App',
-
-  components: {
-  },
-
-  data () {
-    return {
-      leftDrawerOpen: false
-    }
-  }
+  name: 'App'
 }
 </script>
-
-<style>
-</style>
