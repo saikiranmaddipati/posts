@@ -18,9 +18,10 @@ const routes = [
     component: InfoPage
   },
   {
-    path: '/blogpage',
+    path: '/blogpage/:id',
     name: 'blog-page',
-    component: BlogPage
+    component: BlogPage,
+    props: true
   }
 ]
 

@@ -1,31 +1,28 @@
 <template>
-<div>
-        <q-layout
-          view="hHh Lpr lff"
-        >
-        <header-component></header-component>
-          <drawer-component></drawer-component>
-
-          <q-page-container>
-            <q-page padding>
-              <div class="row q-gutter-xl">
-                <q-card
-                  class="my-card shadow-10 col-5"
-                  q-gutter-xs
-                  v-for="post in postDetails.slice(0, 5)"
-                  :key="post.id"
-                  v-on:click="blog()"
-                >
-                <img src="https://cdn.quasar.dev/img/mountains.jpg">
-                  <q-card-section>
-                    <h1 class="heading">{{ post.id }}. {{ post.title }}</h1>
-                  </q-card-section>
-                </q-card>
-              </div>
-            </q-page>
-          </q-page-container>
-        </q-layout>
-</div>
+  <div>
+    <q-layout view="hHh Lpr lff">
+      <header-component></header-component>
+      <drawer-component></drawer-component>
+      <q-page-container>
+        <q-page padding>
+          <div class="row q-gutter-xl">
+            <q-card
+              class="my-card shadow-10 col-5"
+              q-gutter-xs
+              v-for="(post, index) in postDetails"
+              :key="post.id"
+              v-on:click="blog(index)"
+            >
+              <img src="https://cdn.quasar.dev/img/mountains.jpg" />
+              <q-card-section>
+                <h1 class="heading">{{index+1 }}. {{ post.title }}</h1>
+              </q-card-section>
+            </q-card>
+          </div>
+        </q-page>
+      </q-page-container>
+    </q-layout>
+  </div>
 </template>
 
 <script>
@@ -37,7 +34,8 @@ export default {
   name: 'PostDetails',
   data () {
     return {
-      postDetails: []
+      postDetails: [],
+      userId: []
     }
   },
   mounted () {
@@ -48,6 +46,7 @@ export default {
       Axios.get('https://jsonplaceholder.typicode.com/posts')
         .then((response) => {
           this.postDetails = response.data
+          console.log(this.postDetails)
         })
         .catch(function (error) {
           console.log(error)
@@ -63,8 +62,8 @@ export default {
           console.log(error)
         })
     },
-    blog () {
-      this.$router.push('/blogpage')
+    blog (index) {
+      this.$router.push(`/blogpage/${index}`)
     }
   }
 }
